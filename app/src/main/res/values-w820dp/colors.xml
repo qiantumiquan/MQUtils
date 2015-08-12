@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主设置 -->
+    <color name="colorPrimary">#16A085</color>
+    <color name="colorPrimaryDark">#16A085</color>
+    <color name="windowBackground">#34495E</color>
+    <color name="textColorPrimary">#ECF0F1</color>
+    <color name="colorControlNormal">#8E44AD</color>
+    <color name="colorAccent">#E67E22</color>
+    <color name="navigationBarColor">#1ABC9C</color>
+</resources>
