@@ -13,11 +13,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.miquan.mqutils.activity.SuperActivity;
 import com.miquan.mqutils.adapter.DrawerListAdapter;
 import com.miquan.mqutils.adapter.ViewPagerAdapter;
-import com.miquan.mqutils.utils.ToastUtils;
-import com.miquan.mqutils.view.SlidingTabLayout;
+import com.miquan.utils.activity.SuperActivity;
+import com.miquan.utils.utils.ToastUtils;
+import com.miquan.utils.view.SlidingTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class MainActivity extends SuperActivity {
         // DrawerLayout
         mDrawerLayout = (DrawerLayout) findViewById(com.miquan.utils.R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                getToolbar(), com.miquan.utils.R.string.app_name, com.miquan.utils.R.string.app_name);
+                getToolbar(), R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(drawerToggle);
 
         // 侧边栏
@@ -108,7 +108,7 @@ public class MainActivity extends SuperActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(com.miquan.utils.R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -116,10 +116,10 @@ public class MainActivity extends SuperActivity {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
-                case com.miquan.utils.R.id.action_edit:
+                case R.id.action_edit:
                     ToastUtils.showToast(context, item.getTitle().toString());
                     break;
-                case com.miquan.utils.R.id.action_settings:
+                case R.id.action_settings:
                     ToastUtils.showToast(context, item.getTitle().toString());
                     break;
             }

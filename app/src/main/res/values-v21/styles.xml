@@ -1,10 +1,2 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="AppTheme.Base">
-        <!-- Customize your theme here. -->
-        <!-- 屏幕底部home等三个虚拟按键，仅能在v21里面设置 -->
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
-    </style>
-
 </resources>

@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.miquan.mqutils.view.FloatingActionButton;
-import com.miquan.mqutils.view.ProgressBarCircular;
 import com.miquan.utils.R;
+import com.miquan.utils.fragment.SuperFragment;
+import com.miquan.utils.view.FloatingActionButton;
+import com.miquan.utils.view.ProgressBarCircular;
 
 public class SampleFragment extends SuperFragment {
 

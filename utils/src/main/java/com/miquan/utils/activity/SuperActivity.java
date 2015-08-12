@@ -23,7 +23,7 @@ public abstract class SuperActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
-            toolbar.setTitle(getResources().getString(R.string.app_name));
+            toolbar.setTitle("What?");
             setSupportActionBar(toolbar);
             toolbar.setNavigationIcon(R.drawable.ic_ab_drawer);
         }

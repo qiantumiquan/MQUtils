@@ -1,28 +1,2 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="AppTheme.Base">
-        <!-- Customize your theme here. -->
-    </style>
-
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Actionbar color(系统自带叫Actionbar，Toolbar无效) -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <!-- Status bar color(无效，原因不明) -->
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:windowBackground">@color/windowBackground</item>
-        <!-- 标题、更多菜单中的文字颜色 -->
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <!-- 各控制元件的预设颜色 -->
-        <item name="colorControlNormal">@color/colorControlNormal</item>
-        <!-- 各控制元件的选中颜色 -->
-        <item name="colorAccent">@color/colorAccent</item>
-        <!-- 侧边栏 -->
-        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-    </style>
-
-    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="spinBars">true</item>
-        <item name="color">@android:color/white</item>
-    </style>
 </resources>
