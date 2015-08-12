@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.miquan.utils.R;
+import com.miquan.mqutils.R;
 
 import java.util.ArrayList;
 import java.util.List;

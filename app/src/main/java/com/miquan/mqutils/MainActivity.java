@@ -2,11 +2,9 @@ package com.miquan.mqutils;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,18 +13,14 @@ import android.widget.ListView;
 
 import com.miquan.mqutils.adapter.DrawerListAdapter;
 import com.miquan.mqutils.adapter.ViewPagerAdapter;
-import com.miquan.utils.activity.SuperActivity;
+import com.miquan.utils.activity.DrawerActivity;
 import com.miquan.utils.utils.ToastUtils;
 import com.miquan.utils.view.SlidingTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends SuperActivity {
-
-    // DrawerLayout
-    private DrawerLayout mDrawerLayout;
-
+public class MainActivity extends DrawerActivity {
     // 侧边栏
     private ListView mDrawerList;
     private DrawerListAdapter mDrawerAdapter;
@@ -42,9 +36,13 @@ public class MainActivity extends SuperActivity {
     }
 
     @Override
+    protected void init() {
+    }
+
+    @Override
     protected void initToolbar(Toolbar toolbar) {
         if (toolbar != null) {
-            toolbar.setLogo(com.miquan.utils.R.mipmap.ic_launcher);
+            toolbar.setLogo(R.mipmap.ic_launcher);
             toolbar.setTitle("什么鬼");
             toolbar.setSubtitle("小标题");
             toolbar.setOnMenuItemClickListener(mOnMenuItemClickListener);
@@ -53,30 +51,7 @@ public class MainActivity extends SuperActivity {
 
     @Override
     protected void initView() {
-        // DrawerLayout
-        mDrawerLayout = (DrawerLayout) findViewById(com.miquan.utils.R.id.drawer_layout);
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                getToolbar(), R.string.app_name, R.string.app_name);
-        mDrawerLayout.setDrawerListener(drawerToggle);
-
-        // 侧边栏
-        mDrawerList = (ListView) findViewById(com.miquan.utils.R.id.drawer_view);
-        mDrawerAdapter = new DrawerListAdapter(context);
-        mDrawerList.setAdapter(mDrawerAdapter);
-        mDrawerList.setOnItemClickListener(mOnDrawerItemClickListener);
-
-        // 主页面
-        mSlidingTabLayout = (SlidingTabLayout) findViewById(com.miquan.utils.R.id.sliding_tab_layout);
-        mSlidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-            @Override
-            public int getIndicatorColor(int position) {
-                return Color.WHITE;
-            }
-        });
-        mPager = (ViewPager) findViewById(com.miquan.utils.R.id.viewpager);
-        mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(mPagerAdapter);
-        mSlidingTabLayout.setViewPager(mPager);
+        super.initView();
     }
 
     @Override
@@ -86,8 +61,32 @@ public class MainActivity extends SuperActivity {
     }
 
     @Override
-    protected int getLayoutResource() {
-        return com.miquan.utils.R.layout.activity_main;
+    protected View getDrawerContainer() {
+        // 侧边栏
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_container_drawer, null);
+        mDrawerList = (ListView) view.findViewById(R.id.drawer_container);
+        mDrawerAdapter = new DrawerListAdapter(context);
+        mDrawerList.setAdapter(mDrawerAdapter);
+        mDrawerList.setOnItemClickListener(mOnDrawerItemClickListener);
+        return view;
+    }
+
+    @Override
+    protected View getMainContainer() {
+        // 主页面
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_container_main, null);
+        mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tab_layout);
+        mSlidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+            @Override
+            public int getIndicatorColor(int position) {
+                return Color.WHITE;
+            }
+        });
+        mPager = (ViewPager) view.findViewById(R.id.viewpager);
+        mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mSlidingTabLayout.setViewPager(mPager);
+        return view;
     }
 
     private void updateDrawer() {
@@ -132,10 +131,10 @@ public class MainActivity extends SuperActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch (position) {
                 case 0:
-                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    closeDrawer();
                     break;
                 case 1:
-                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                    closeDrawer();
                     break;
             }
         }

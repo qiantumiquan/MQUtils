@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.miquan.utils.R;
+import com.miquan.mqutils.R;
 import com.miquan.utils.fragment.SuperFragment;
 import com.miquan.utils.view.FloatingActionButton;
 import com.miquan.utils.view.ProgressBarCircular;

@@ -28,6 +28,7 @@ public abstract class SuperActivity extends AppCompatActivity {
             toolbar.setNavigationIcon(R.drawable.ic_ab_drawer);
         }
 
+        init();
         initToolbar(toolbar);
         initView();
         initViewData();
@@ -39,7 +40,23 @@ public abstract class SuperActivity extends AppCompatActivity {
 
     protected abstract int getLayoutResource();
 
+    /**
+     * 初始化一些变量等。
+     */
+    protected abstract void init();
+
+    /**
+     * 初始化Toolbar。
+     */
     protected abstract void initToolbar(Toolbar toolbar);
+
+    /**
+     * 取得view，添加一些监听器等等。
+     */
     protected abstract void initView();
+
+    /**
+     * 给view赋值。
+     */
     protected abstract void initViewData();
 }
